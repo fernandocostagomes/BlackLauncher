@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.autotrac.jatmobilelauncher.ShowApps" >
+
+    <item
+        android:id="@+id/block_all"
+        android:orderInCategory="100"
+        android:title="@string/block_all"
+        android:icon="@drawable/ic_launcher"
+        />
+    
+    <item
+        android:id="@+id/unblock_all"
+        android:orderInCategory="100"
+        android:title="@string/unblock_all"
+        android:icon="@drawable/ic_launcher"
+        />
+    <item
+        android:id="@+id/settings"
+        android:orderInCategory="100"
+        android:title="@string/unblock_all"
+        android:icon="@drawable/ic_launcher"
+        />
+    
+    
+    
+</menu>

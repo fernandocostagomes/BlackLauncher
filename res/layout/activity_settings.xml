@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+ //Tabel para o Titulo ficar fixo na tela.
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow
+            android:id="@+id/tableRow0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtSettings"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="35dp"
+                android:text="@string/action_settings"                
+                android:textAppearance="?android:attr/textAppearanceLarge" />            
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+        
+        
+        //Linha que contém uma tabela dentro.        
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"            
+            android:padding="5dip" >
+            
+            <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:fillViewport="true" >
+            
+            <TableLayout
+        android:id="@+id/tableLayoutCheckList"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" 
+        android:stretchColumns="1"> 
+        
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" 
+            >
+
+            <TextView
+                android:id="@+id/txtPassWord"
+                android:layout_width="match_parent" 
+                android:gravity="left"
+                android:text="@string/passWord"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Button
+                android:id="@+id/btAlterPassWord"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtAlterPassWord"
+                android:text="@string/bt_alterPassWord"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+        
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtDataBase"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/database"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btClearDB"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtClearDB"
+                android:text="@string/bt_clear"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>  
+            
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtDownloadATMobile"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/downloadATMobile"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btDownloadATMobile"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtDownloadATMobile"
+                android:text="@string/bt_download"/>
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+            
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/appInstalled"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/appInstalled"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btAppInstalled"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtShowApps"
+                android:text="@string/bt_action_showApps"/>
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+            <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/rebootProgramed"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/reboot_programed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btRebootProgramed"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:defaultValue="12:00"
+                android:dependency="alarme"
+                android:onClick="evtRebootProgramed"
+                android:text="@string/bt_desactived"/>            
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+            
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtBtPower"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/txtButtonPower"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btPower"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtBtPower"
+                android:text="@string/bt_desactived"/>
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+            
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtModeSingleApp"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/txtModeSingleApp"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btModeSingleApp"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtBtModeSingleApp"
+                android:text="@string/bt_desactived"/>
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+            
+        <TableRow
+            android:id="@+id/tableRow8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dip" >
+
+            <TextView
+                android:id="@+id/txtUninstall"
+                android:layout_width="wrap_content"                
+                android:gravity="left"
+                android:text="@string/txtUninstall"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <Button
+                android:id="@+id/btUninstall"
+                android:layout_width="wrap_content"              
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="evtBtUninstall"
+                android:text="@string/bt_uninstall"/>
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <View                
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_weight="1"
+                android:background="#FF909090"
+                android:padding="2dip" />       
+        
+            </TableRow>
+    </TableLayout>
+        </ScrollView>
+        </TableRow>
+        
+       </TableLayout>
+</LinearLayout>

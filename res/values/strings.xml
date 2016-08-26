@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Black Launcher</string>
+    <string name="hello_world">Hello world!</string>    
+    
+    <!-- Strings para o Menu. -->
+    <string name="action_settings">Configurações</string>
+    <string name="action_showApps">Listar Apps</string>
+    <string name="action_alter_backgroud">Alterar Plano de Fundo</string>
+    <string name="action_resetar_password">Resetar Senha</string>
+    <string name="action_about">Sobre</string>
+    
+    <!-- Strings para a opção do menu Configurações. -->    
+    <string name="code_for_config">Digite o código para acessar as configurações:</string>
+    <string name="invalid_code">Código inválido!</string>
+    
+    <!-- Strings para a opção do menu Listar Apps. -->    
+    <string name="code_for_show_apps">Digite o código para visualizar os Apps.</string>
+    
+    <!-- Strings para a opção do menu Resetar Senha. -->
+    <string name="code_for_reset_password">Digite o código para resetar sua senha de configuração:</string>
+    <string name="password_was_reset_sucess">A Senha foi redefinida para o padrão Autotrac.</string>
+    <string name="password_was_reset_no_sucess">Tentativa inválida, confira o código fornecido pela Autotrac.</string>
+    
+    <!-- Strings para a opção do menu Sobre. -->
+    <string name="about_app_launcher">Sobre o Black Launcher</string>
+    <string name="version_launcher">Versão do Black Launcher:</string>
+    <string name="version_android">Versão do Android:</string> 
+    <string name="imei_device">IMEI Equipamento:</string>
+    
+    <!-- Strings de todos os buttons do App. -->
+    <string name="bt_alterPassWord">Alterar</string>
+    <string name="bt_clear">Limpar</string>
+    <string name="bt_download">Download</string>
+    <string name="bt_action_showApps">Listar Apps</string>
+    <string name="bt_actived">Ativado</string>
+    <string name="bt_desactived">Desativado</string>
+    <string name="bt_uninstall">Desinstalar</string>
+    
+    <!-- Strings para a função de alterar senha. --> 
+    <string name="passWord">Senha</string>
+    <string name="alter_psw">Alteração de senha:</string>       
+	<string name="old_password">Antiga senha</string>    
+	<string name="new_password">Nova senha</string>    
+    <string name="new_password_confirm">Confirmar nova senha</string>
+    <string name="alter">Alterar</string>
+    <string name="alter_psw_sucess">Senha alterada com sucesso!</string>
+    <string name="alter_psw_not_equals">Nova senha e confirmação de nova senha não são iguais!</string>
+    <string name="alter_psw_not_confirm_old_psw">Antiga senha não confere!</string>
+    <string name="alter_psw_not_null">Não é permitido senha com conteúdo vázio!</string>
+    
+    <!-- Strings para a função de Banco de Dados. -->
+    <string name="database">Banco de Dados</string>    
+    <string name="askConfirmClearDB">Deseja realmente fazer a limpeza dos dados?</string>
+    <string name="bd_clean_sucess">Banco de dados formatado com sucesso!</string>
+    <string name="bd_clean_no_sucess">Erro ao tentar limpar o banco de dados!</string>
+    
+    <!-- Strings para a função Downloads. -->
+    <string name="downloadATMobile">Download App Black Launcher</string>
+    <string name="label_atmobile">Black Launcher</string>
+    
+    <!-- Strings para a função Listar Apps. -->
+    <string name="appInstalled">Apps instalados</string>
+    
+    <!-- Strings para a função Reboot Programado. -->
+    <string name="reboot_programed">Reboot programado</string>
+    <string name="reboot_programed_tittle">Configurar Reboot Programado</string>
+    <string name="reboot_programed_set">Definir</string>
+    
+    
+    <!-- Strings para a função Bloqueio da Tecla Power na Tela Home. -->
+    <string name="txtButtonPower">Bloqueio da tecla Power na Tela Home</string>
+    
+    <!-- Strings para a função Modo App Único. -->
+    <string name="txtModeSingleApp">Modo App Único</string>
+    <string name="mode_single_app_dot">Modo App Único: </string>
+    <string name="question_single_app">No Modo App Único, somente um App é mostrado na Tela Home! Deseja continuar?</string>
+    <string name="noticeModeSingleAppSucess">Modo App Único configurado com sucesso - TimeOut padrão 12s.</string>
+    <string name="mode_single_app_actived">Modo App Único desativado</string>
+    <string name="app">App: </string>
+    
+    <!-- Strings para a função Desinstalar o Launcher ATMobile. -->
+    <string name="txtUninstall">Desinstalar o Black Launcher</string>
+    <string name="name_package">package:</string>
+       
+    <!-- Strings comuns ao App Launcher ATMobile. -->
+    <string name="ok">Ok</string>
+    <string name="cancell">Cancelar</string>
+    <string name="notice">Aviso</string>
+    <string name="actived">Ativado</string>
+    <string name="desactived">Desativado</string>
+    
+    <!-- Strings para a Activity Show Apps. -->
+    <string name="block_all">Bloquear todos Apps</string>
+    <string name="unblock_all">Desbloquear todos Apps</string>
+    <string name="block_app">Bloquear App</string>
+    <string name="block">Bloqueado</string>
+    <string name="unblock">Desbloqueado</string>
+    <string name="unblock_app">Desbloquear App</string>
+    <string name="config_app">Configurar App: </string>
+    <string name="open">Abrir</string>
+    <string name="all_apps_was_block">Todos os Apps foram bloqueados!</string>
+    <string name="all_apps_was_unblock">Todos os Apps foram desbloqueados!</string>
+    <string name="error_try_block_apps">Erro ao tentar bloquear os Apps!</string>
+    <string name="error_try_unblock_apps">Erro ao tentar desbloquear os Apps!</string> 
+    <string name="permission_zero">0</string>
+    <string name="permission_one">1</string>
+    <string name="permission_no">no</string>
+
+</resources>

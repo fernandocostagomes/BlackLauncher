@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llAllowActivities"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:longClickable="true"
+    android:orientation="horizontal" >
+    
+    <GridView
+        tools:id="@+id/lvAllowAppsActivity"
+        tools:layout_width="fill_parent"
+        tools:layout_height="fill_parent"
+        tools:numColumns="5"
+        />
+
+</LinearLayout>
