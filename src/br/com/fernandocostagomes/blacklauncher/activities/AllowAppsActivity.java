@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
+import android.graphics.PixelFormat;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -38,10 +45,40 @@ public class AllowAppsActivity extends Activity
     */
    private String m_nameSingleModeApp = "";
 
+   DbHelper m_dbh = new DbHelper( this );
+
+   /**
+    * View customizada para cobrir a barra de notificações. *
+    */
+   private customViewGroup m_view;
+
    /**
     * PacketManager.
     */
    private PackageManager m_pm;
+
+   /**
+    * Classe interna com um grupo de view customizado para fazer o bloqueio da barra de notificações.
+    */
+   public class customViewGroup extends ViewGroup
+   {
+      @Override
+      protected void onLayout( boolean changed, int p_l, int p_t, int p_r, int p_b )
+      {
+      }
+
+      public customViewGroup( Context p_context )
+      {
+         super( p_context );
+      }
+
+      @Override
+      public boolean onInterceptTouchEvent( MotionEvent p_ev )
+      {
+         Log.v( "customViewGroup", "**********Intercepted" );
+         return true;
+      }
+   }
 
    /**
     * Método que lê e carrega os Apps que estão desbloqueados(1 - Mostrados na tela home).
@@ -155,6 +192,84 @@ public class AllowAppsActivity extends Activity
          m_lvAppsOn.setNumColumns( 3 );
       }
       m_lvAppsOn.setAdapter( adapter );
+   }
+
+   private void checkBlockBarNotifications()
+   {
+
+      if ( m_dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID )
+               .equals( ClientConsts.BarBlockUnblock.BLOCK ) )
+      {
+         m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
+                  ClientConsts.BarBlockUnblock.UNBLOCK );
+      }
+      {
+         m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
+                  ClientConsts.BarBlockUnblock.BLOCK );
+      }
+
+   }
+
+   /**
+    * Método que recebe o clique nos itens do Menu.
+    */
+   @Override
+   public boolean onOptionsItemSelected( final MenuItem p_item )
+   {
+      int id = p_item.getItemId();
+
+      if ( id == R.id.settings )
+      {
+         startActivity( new Intent( getApplicationContext(), SettingsActivity.class ) );
+      }
+
+      return super.onOptionsItemSelected( p_item );
+   }
+
+   /**
+    * Método que faz o bloqueio da barra de notificações criando uma barra invisível por cima no instante que ela é
+    * chamada.
+    */
+   public void preventStatusBarExpansion( Context p_context )
+   {
+      WindowManager manager = ( ( WindowManager )p_context.getApplicationContext()
+               .getSystemService( Context.WINDOW_SERVICE ) );
+
+      Activity activity = ( Activity )p_context;
+      WindowManager.LayoutParams localLayoutParams = new WindowManager.LayoutParams();
+      localLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+      localLayoutParams.gravity = Gravity.TOP;
+      localLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
+
+      // O objectivo é permitir a notificação para receber eventos de toque de janelas
+               WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
+
+               WindowManager.LayoutParams.FLAG_FULLSCREEN |
+
+               // Chama sobre estatuto bar
+               WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
+
+      localLayoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+      // http://stackoverflow.com/questions/1016896/get-screen-dimensions-in-pixels
+      int resId = activity.getResources().getIdentifier( "status_bar_height", "dimen", "android" );
+      int result = 0;
+      if ( resId > 0 )
+      {
+         result = activity.getResources().getDimensionPixelSize( resId );
+      }
+
+      localLayoutParams.height = result;
+
+      localLayoutParams.format = PixelFormat.TRANSPARENT;
+
+      m_view = new customViewGroup( p_context );
+
+      manager.addView( m_view, localLayoutParams );
+   }
+
+   private void removeStatusBarExpansion()
+   {
+
    }
 
 }

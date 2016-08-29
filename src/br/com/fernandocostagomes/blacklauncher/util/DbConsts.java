@@ -28,7 +28,7 @@ public final class DbConsts
       /** Parâmetro com a senha padrão escolhida pelo cliente. */
       public static final int PARAM_PASSWORD_DEFAULT_ID = 15;
 
-      /** Parâmetro com a senha padrão escolhida pelo cliente. */
+      /** Parâmetro com a opção de Bloquear / Desbloquear a barra de notificações.. */
       public static final int PARAM_BAR_BLOCK_UNBLOCK_ID = 16;
    }
 

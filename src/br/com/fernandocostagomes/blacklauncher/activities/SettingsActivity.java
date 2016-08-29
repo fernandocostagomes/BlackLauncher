@@ -88,6 +88,11 @@ public class SettingsActivity extends Activity
     */
    private DbHelper m_dbh = new DbHelper( this );
 
+   /***
+    * Button usado na escolha de bloquear / desbloquear a barra de notificações.
+    */
+   private Button m_btBar_notifications;
+
    /**
     * Variaveis usadas no reboot programado para armazenar as horas e minutos.
     */
@@ -296,6 +301,23 @@ public class SettingsActivity extends Activity
       return returnCancell;
    }
 
+   private void checkBarNotifications()
+   {
+      String param_bar_notifications = m_dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID );
+
+      if ( param_bar_notifications.equals( ClientConsts.BarBlockUnblock.BLOCK ) )
+      {
+         m_btBar_notifications = ( Button )findViewById( R.id.bt_bar_notifications );
+         m_btBar_notifications.setText( getString( R.string.block ) );
+      }
+      else
+      {
+         m_btBar_notifications = ( Button )findViewById( R.id.bt_bar_notifications );
+         m_btBar_notifications.setText( getString( R.string.unblock ) );
+      }
+
+   }
+
    /**
     * Método Oncreate.
     */
@@ -332,6 +354,9 @@ public class SettingsActivity extends Activity
 
       // Método que configura o button Reboot Programed.
       checkBtRebootProgramed();
+
+      // Metódo que configura a barra de notificações - Bloqueio / Desbloqueio.
+      checkBarNotifications();
    }
 
    /**
@@ -469,9 +494,21 @@ public class SettingsActivity extends Activity
    /**
     * Evento de clique que conecta a um sevidor html com as versões do app Autotrac Mobile. *
     */
-   public void evtDownloadATMobile( View p_view )
+   public void evtBarNotifications( View p_view )
    {
 
+      if ( m_dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID )
+               .equals( ClientConsts.BarBlockUnblock.BLOCK ) )
+      {
+         m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
+                  ClientConsts.BarBlockUnblock.UNBLOCK );
+      }
+      {
+         m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
+                  ClientConsts.BarBlockUnblock.BLOCK );
+      }
+
+      checkBarNotifications();
    }
 
    /**

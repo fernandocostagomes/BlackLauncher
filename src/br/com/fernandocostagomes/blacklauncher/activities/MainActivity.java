@@ -140,7 +140,7 @@ public class MainActivity extends Activity
          m_seconds = m_chrono.getChonometer();
          if ( m_seconds < 5 )
          {
-            startActivity( new Intent( getApplicationContext(), ShowAppsActivity.class ) );
+            startActivity( new Intent( getApplicationContext(), AllowAppsActivity.class ) );
          }
          else
          {

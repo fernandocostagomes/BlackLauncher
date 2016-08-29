@@ -25,17 +25,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09002d;
+        public static final int action_settings=0x7f09002e;
         public static final int appInstalled=0x7f090018;
-        public static final int block_all=0x7f09002e;
+        public static final int block_all=0x7f09002f;
         public static final int btAlterPassWord=0x7f090010;
         public static final int btAppInstalled=0x7f090019;
         public static final int btClearDB=0x7f090013;
-        public static final int btDownloadATMobile=0x7f090016;
         public static final int btModeSingleApp=0x7f090022;
         public static final int btPower=0x7f09001f;
         public static final int btRebootProgramed=0x7f09001c;
         public static final int btUninstall=0x7f090025;
+        public static final int bt_bar_notifications=0x7f090016;
         public static final int etNewPassword=0x7f09002a;
         public static final int etNewPasswordConfirm=0x7f09002c;
         public static final int etOldPassword=0x7f090028;
@@ -49,7 +49,7 @@ public final class R {
         public static final int name=0x7f090004;
         public static final int rebootProgramed=0x7f09001b;
         public static final int scrollView1=0x7f09000c;
-        public static final int settings=0x7f090030;
+        public static final int settings=0x7f09002d;
         public static final int tableLayoutCheckList=0x7f09000d;
         public static final int tableRow=0x7f09000b;
         public static final int tableRow0=0x7f090009;
@@ -67,12 +67,12 @@ public final class R {
         public static final int tvOldPassword=0x7f090027;
         public static final int txtBtPower=0x7f09001e;
         public static final int txtDataBase=0x7f090012;
-        public static final int txtDownloadATMobile=0x7f090015;
         public static final int txtModeSingleApp=0x7f090021;
         public static final int txtPassWord=0x7f09000f;
         public static final int txtSettings=0x7f09000a;
         public static final int txtUninstall=0x7f090024;
-        public static final int unblock_all=0x7f09002f;
+        public static final int txt_bar_notifications=0x7f090015;
+        public static final int unblock_all=0x7f090030;
         public static final int visibility=0x7f090005;
     }
     public static final class layout {
@@ -86,8 +86,9 @@ public final class R {
         public static final int activity_update_password=0x7f030007;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
-        public static final int showappsactivity=0x7f080001;
+        public static final int allow_apps_menu=0x7f080000;
+        public static final int main=0x7f080001;
+        public static final int showappsactivity=0x7f080002;
     }
     public static final class raw {
         public static final int bdblacklauncher=0x7f040000;
@@ -95,7 +96,7 @@ public final class R {
     public static final class string {
         /**  Strings para a opção do menu Sobre. 
          */
-        public static final int about_app_launcher=0x7f06000d;
+        public static final int about_app_launcher=0x7f06000e;
         public static final int action_about=0x7f060006;
         public static final int action_alter_backgroud=0x7f060004;
         public static final int action_resetar_password=0x7f060005;
@@ -103,101 +104,102 @@ public final class R {
          */
         public static final int action_settings=0x7f060002;
         public static final int action_showApps=0x7f060003;
-        public static final int actived=0x7f060038;
-        public static final int all_apps_was_block=0x7f060042;
-        public static final int all_apps_was_unblock=0x7f060043;
-        public static final int alter=0x7f06001d;
-        public static final int alter_psw=0x7f060019;
-        public static final int alter_psw_not_confirm_old_psw=0x7f060020;
-        public static final int alter_psw_not_equals=0x7f06001f;
-        public static final int alter_psw_not_null=0x7f060021;
-        public static final int alter_psw_sucess=0x7f06001e;
-        public static final int app=0x7f060032;
+        public static final int actived=0x7f060039;
+        public static final int all_apps_was_block=0x7f060043;
+        public static final int all_apps_was_unblock=0x7f060044;
+        public static final int alter=0x7f06001e;
+        public static final int alter_psw=0x7f06001a;
+        public static final int alter_psw_not_confirm_old_psw=0x7f060021;
+        public static final int alter_psw_not_equals=0x7f060020;
+        public static final int alter_psw_not_null=0x7f060022;
+        public static final int alter_psw_sucess=0x7f06001f;
+        public static final int app=0x7f060033;
         /**  Strings para a função Listar Apps. 
          */
-        public static final int appInstalled=0x7f060028;
+        public static final int appInstalled=0x7f060029;
         public static final int app_name=0x7f060000;
-        public static final int askConfirmClearDB=0x7f060023;
-        public static final int bd_clean_no_sucess=0x7f060025;
-        public static final int bd_clean_sucess=0x7f060024;
-        public static final int block=0x7f06003d;
+        public static final int askConfirmClearDB=0x7f060024;
+        public static final int bd_clean_no_sucess=0x7f060026;
+        public static final int bd_clean_sucess=0x7f060025;
+        public static final int block=0x7f06003e;
         /**  Strings para a Activity Show Apps. 
          */
-        public static final int block_all=0x7f06003a;
-        public static final int block_app=0x7f06003c;
-        public static final int bt_action_showApps=0x7f060014;
-        public static final int bt_actived=0x7f060015;
+        public static final int block_all=0x7f06003b;
+        public static final int block_app=0x7f06003d;
+        public static final int bt_action_showApps=0x7f060015;
+        public static final int bt_actived=0x7f060016;
         /**  Strings de todos os buttons do App. 
          */
-        public static final int bt_alterPassWord=0x7f060011;
-        public static final int bt_clear=0x7f060012;
-        public static final int bt_desactived=0x7f060016;
-        public static final int bt_download=0x7f060013;
-        public static final int bt_uninstall=0x7f060017;
-        public static final int cancell=0x7f060036;
+        public static final int bt_alterPassWord=0x7f060012;
+        public static final int bt_clear=0x7f060013;
+        public static final int bt_desactived=0x7f060017;
+        public static final int bt_download=0x7f060014;
+        public static final int bt_uninstall=0x7f060018;
+        public static final int cancell=0x7f060037;
         /**  Strings para a opção do menu Configurações. 
          */
         public static final int code_for_config=0x7f060007;
         /**  Strings para a opção do menu Resetar Senha. 
          */
-        public static final int code_for_reset_password=0x7f06000a;
+        public static final int code_for_reset_password=0x7f06000b;
         /**  Strings para a opção do menu Listar Apps. 
          */
-        public static final int code_for_show_apps=0x7f060009;
-        public static final int config_app=0x7f060040;
+        public static final int code_for_show_apps=0x7f06000a;
+        public static final int config_app=0x7f060041;
         /**  Strings para a função de Banco de Dados. 
          */
-        public static final int database=0x7f060022;
-        public static final int desactived=0x7f060039;
+        public static final int database=0x7f060023;
+        public static final int desactived=0x7f06003a;
         /**  Strings para a função Downloads. 
          */
-        public static final int downloadATMobile=0x7f060026;
-        public static final int error_try_block_apps=0x7f060044;
-        public static final int error_try_unblock_apps=0x7f060045;
+        public static final int downloadATMobile=0x7f060027;
+        public static final int error_try_block_apps=0x7f060045;
+        public static final int error_try_unblock_apps=0x7f060046;
         public static final int hello_world=0x7f060001;
-        public static final int imei_device=0x7f060010;
+        public static final int imei_device=0x7f060011;
         public static final int invalid_code=0x7f060008;
-        public static final int label_atmobile=0x7f060027;
-        public static final int mode_single_app_actived=0x7f060031;
-        public static final int mode_single_app_dot=0x7f06002e;
-        public static final int name_package=0x7f060034;
-        public static final int new_password=0x7f06001b;
-        public static final int new_password_confirm=0x7f06001c;
-        public static final int notice=0x7f060037;
-        public static final int noticeModeSingleAppSucess=0x7f060030;
+        public static final int label_atmobile=0x7f060028;
+        public static final int mode_single_app_actived=0x7f060032;
+        public static final int mode_single_app_dot=0x7f06002f;
+        public static final int name_package=0x7f060035;
+        public static final int new_password=0x7f06001c;
+        public static final int new_password_confirm=0x7f06001d;
+        public static final int notice=0x7f060038;
+        public static final int noticeModeSingleAppSucess=0x7f060031;
         /**  Strings comuns ao App Launcher ATMobile. 
          */
-        public static final int ok=0x7f060035;
-        public static final int old_password=0x7f06001a;
-        public static final int open=0x7f060041;
+        public static final int ok=0x7f060036;
+        public static final int old_password=0x7f06001b;
+        public static final int open=0x7f060042;
         /**  Strings para a função de alterar senha. 
          */
-        public static final int passWord=0x7f060018;
-        public static final int password_was_reset_no_sucess=0x7f06000c;
-        public static final int password_was_reset_sucess=0x7f06000b;
-        public static final int permission_no=0x7f060048;
-        public static final int permission_one=0x7f060047;
-        public static final int permission_zero=0x7f060046;
-        public static final int question_single_app=0x7f06002f;
+        public static final int passWord=0x7f060019;
+        public static final int password_was_reset_no_sucess=0x7f06000d;
+        public static final int password_was_reset_sucess=0x7f06000c;
+        public static final int permission_no=0x7f060049;
+        public static final int permission_one=0x7f060048;
+        public static final int permission_zero=0x7f060047;
+        public static final int question_single_app=0x7f060030;
         /**  Strings para a função Reboot Programado. 
          */
-        public static final int reboot_programed=0x7f060029;
-        public static final int reboot_programed_set=0x7f06002b;
-        public static final int reboot_programed_tittle=0x7f06002a;
+        public static final int reboot_programed=0x7f06002a;
+        public static final int reboot_programed_set=0x7f06002c;
+        public static final int reboot_programed_tittle=0x7f06002b;
         /**  Strings para a função Bloqueio da Tecla Power na Tela Home. 
          */
-        public static final int txtButtonPower=0x7f06002c;
+        public static final int txtButtonPower=0x7f06002d;
         /**  Strings para a função Modo App Único. 
          */
-        public static final int txtModeSingleApp=0x7f06002d;
+        public static final int txtModeSingleApp=0x7f06002e;
         /**  Strings para a função Desinstalar o Launcher ATMobile. 
          */
-        public static final int txtUninstall=0x7f060033;
-        public static final int unblock=0x7f06003e;
-        public static final int unblock_all=0x7f06003b;
-        public static final int unblock_app=0x7f06003f;
-        public static final int version_android=0x7f06000f;
-        public static final int version_launcher=0x7f06000e;
+        public static final int txtUninstall=0x7f060034;
+        public static final int txt_bar_notifications=0x7f060009;
+        public static final int unblock=0x7f06003f;
+        public static final int unblock_all=0x7f06003c;
+        public static final int unblock_app=0x7f060040;
+        public static final int version_android=0x7f060010;
+        public static final int version_launcher=0x7f06000f;
     }
     public static final class style {
         /** 

@@ -14,6 +14,7 @@
     <!-- Strings para a opção do menu Configurações. -->    
     <string name="code_for_config">Digite o código para acessar as configurações:</string>
     <string name="invalid_code">Código inválido!</string>
+    <string name="txt_bar_notifications">Barra de Notificações</string>    
     
     <!-- Strings para a opção do menu Listar Apps. -->    
     <string name="code_for_show_apps">Digite o código para visualizar os Apps.</string>

@@ -275,9 +275,7 @@ public class DbHelper extends SQLiteOpenHelper
    }
 
    /**
-    * Metódo que seleciona a permissão de um determinado App.
-    * 
-    * @param p_nameapp nome do App que deseja saber sua permissão.
+    * Metódo que seleciona o valor de um parâmetro no banco de dados..
     * 
     * @return valueParameter retorna o valor do parâmetro.
     */

@@ -133,19 +133,19 @@
             android:padding="4dip" >
 
             <TextView
-                android:id="@+id/txtDownloadATMobile"
+                android:id="@+id/txt_bar_notifications"
                 android:layout_width="wrap_content"                
                 android:gravity="left"
-                android:text="@string/downloadATMobile"
+                android:text="@string/txt_bar_notifications"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <Button
-                android:id="@+id/btDownloadATMobile"
+                android:id="@+id/bt_bar_notifications"
                 android:layout_width="wrap_content"              
                 android:layout_weight="1"
                 android:gravity="center"
-                android:onClick="evtDownloadATMobile"
-                android:text="@string/bt_download"/>
+                android:onClick="evtBarNotifications"
+                android:text="@string/block"/>
         </TableRow>
         
         <TableRow
