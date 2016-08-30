@@ -10,8 +10,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.PixelFormat;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -100,14 +102,6 @@ public class AllowAppsActivity extends Activity
       {
          AppInfo appinfo = new AppInfo();
 
-         // Confere se tem o App ATMobile instalado e já dá a permissão de mostrar na tela principal.
-         if ( ri.loadLabel( m_pm ).equals( "Autotrac M." ) )
-         {
-            if ( dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_MODE_EVER_SHORTCUT_ATMOBILE_ID ).equals(
-                     ClientConsts.ShortCutEverAtMobile.ACTIVED ) )
-               dbh.updatePermissionAppInfo( ri.activityInfo.packageName, "1" );
-         }
-
          try
          {
             if ( dbh.selectPermissionApp( ri.activityInfo.packageName ).equals( "1" ) )
@@ -130,7 +124,7 @@ public class AllowAppsActivity extends Activity
     */
    private void loadListView()
    {
-      // m_lvAppsOn = ( GridView )findViewById( R.id.lvAllowAppsActivity );
+      m_lvAppsOn = ( GridView )findViewById( R.id.lvAllowAppsActivity );
 
       ArrayAdapter<AppInfo> adapter = new ArrayAdapter<AppInfo>( this, R.layout.activity_list_apps_permission_on,
                m_listAppInfo )
@@ -183,14 +177,22 @@ public class AllowAppsActivity extends Activity
       };
       Configuration configuration = getResources().getConfiguration();
 
-      if ( configuration.orientation == Configuration.ORIENTATION_LANDSCAPE )
+      try
       {
-         m_lvAppsOn.setNumColumns( 5 );
+         if ( configuration.orientation == Configuration.ORIENTATION_LANDSCAPE )
+         {
+            m_lvAppsOn.setNumColumns( 5 );
+         }
+         else
+         {
+            m_lvAppsOn.setNumColumns( 3 );
+         }
       }
-      else
+      catch ( Exception p_e )
       {
-         m_lvAppsOn.setNumColumns( 3 );
+         p_e.printStackTrace();
       }
+
       m_lvAppsOn.setAdapter( adapter );
    }
 
@@ -200,14 +202,35 @@ public class AllowAppsActivity extends Activity
       if ( m_dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID )
                .equals( ClientConsts.BarBlockUnblock.BLOCK ) )
       {
-         m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
-                  ClientConsts.BarBlockUnblock.UNBLOCK );
+         preventStatusBarExpansion( this );
       }
       {
          m_dbh.updateParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
                   ClientConsts.BarBlockUnblock.BLOCK );
       }
 
+   }
+
+   @Override
+   protected void onCreate( Bundle savedInstanceState )
+   {
+      // TODO Auto-generated method stub
+      super.onCreate( savedInstanceState );
+      setContentView( R.layout.activity_allow_apps );
+
+      loadAppsPermissionOn();
+
+      loadListView();
+
+      checkBlockBarNotifications();
+   }
+
+   @Override
+   public boolean onCreateOptionsMenu( Menu p_menu )
+   {
+      getMenuInflater().inflate( R.menu.allow_apps_menu, p_menu );
+
+      return true;
    }
 
    /**
@@ -221,6 +244,11 @@ public class AllowAppsActivity extends Activity
       if ( id == R.id.settings )
       {
          startActivity( new Intent( getApplicationContext(), SettingsActivity.class ) );
+      }
+
+      if ( id == R.id.allApps )
+      {
+         startActivity( new Intent( getApplicationContext(), ShowAppsActivity.class ) );
       }
 
       return super.onOptionsItemSelected( p_item );
@@ -270,6 +298,20 @@ public class AllowAppsActivity extends Activity
    private void removeStatusBarExpansion()
    {
 
+   }
+
+   @Override
+   public void onBackPressed()
+   {
+      finish();
+      super.onBackPressed();
+   }
+
+   @Override
+   protected void onResume()
+   {
+      loadAppsPermissionOn();
+      loadListView();
    }
 
 }

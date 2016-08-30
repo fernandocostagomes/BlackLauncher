@@ -7,6 +7,7 @@ import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -32,6 +33,11 @@ public class MainActivity extends Activity
    DbHelper dbh = new DbHelper( this );
 
    Chronometer m_chrono = new Chronometer();
+
+   /*
+    * Valor do Parâmetro do bloqueio da tecla Power.
+    */
+   private boolean m_valueParamPowerKey;
 
    /**
     * Classe interna com um grupo de view customizado para fazer o bloqueio da barra de notificações.
@@ -66,14 +72,46 @@ public class MainActivity extends Activity
       boolean result = false;
 
       // Copnsulta no banco se a barra de notificações está bloqueada ou desbloqueada.
-      if ( dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID )
-               .equals( ClientConsts.BarBlockUnblock.BLOCK ) )
+      String paramValueBarBlock = dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID );
+
+      if ( paramValueBarBlock.equals( ClientConsts.BarBlockUnblock.BLOCK ) )
       {
          preventStatusBarExpansion( this );
          result = true;
       }
+      if ( paramValueBarBlock.equals( "" ) )
+      {
+         dbh.insertParameter( DbConsts.DbParameterIdValues.PARAM_BAR_BLOCK_UNBLOCK_ID,
+                  ClientConsts.BarBlockUnblock.BLOCK );
+      }
 
       return result;
+   }
+
+   /*
+    * Método que verifica o bloqueio da tecla Power.
+    */
+   private void checkPowerKey()
+   {
+      DbHelper dbh = new DbHelper( this );
+
+      if ( dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_POWER_BUTTON_HOME_SCREEN_ID ).equals( "" ) )
+      {
+         m_valueParamPowerKey = false;
+         dbh.insertParameter( DbConsts.DbParameterIdValues.PARAM_POWER_BUTTON_HOME_SCREEN_ID,
+                  ClientConsts.PowerButtonHomeScreen.DESACTIVED );
+      }
+
+      // Pesquisa o parâmetro e trata.
+      if ( dbh.selectParameter( DbConsts.DbParameterIdValues.PARAM_POWER_BUTTON_HOME_SCREEN_ID ).equals(
+               ClientConsts.PowerButtonHomeScreen.ACTIVED ) )
+      {
+         m_valueParamPowerKey = true;
+      }
+      else
+      {
+         m_valueParamPowerKey = false;
+      }
    }
 
    @Override
@@ -84,6 +122,10 @@ public class MainActivity extends Activity
 
       // Método para bloquear a barra de notificações.
       isBarBlock();
+
+      // Metódo que verifica se a tecla power está bloqueada.
+      checkPowerKey();
+
    }
 
    /**
@@ -170,5 +212,28 @@ public class MainActivity extends Activity
    public void onBackPressed()
    {
 
+   }
+
+   /*
+    * Método que itercepta quando a tecla power for acionada.
+    * (non-Javadoc)
+    * 
+    * @see android.app.Activity#dispatchKeyEvent(android.view.KeyEvent)
+    */
+   @Override
+   public boolean dispatchKeyEvent( KeyEvent p_event )
+   {
+      if ( m_valueParamPowerKey == true )
+      {
+         if ( p_event.getKeyCode() == KeyEvent.KEYCODE_POWER )
+         {
+            Log.i( "", "Dispath evento power" );
+
+            Intent closeDialog = new Intent( Intent.ACTION_CLOSE_SYSTEM_DIALOGS );
+            sendBroadcast( closeDialog );
+            return true;
+         }
+      }
+      return super.dispatchKeyEvent( p_event );
    }
 }

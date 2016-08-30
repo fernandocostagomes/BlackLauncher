@@ -25,9 +25,10 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09002e;
+        public static final int action_settings=0x7f09002f;
+        public static final int allApps=0x7f09002e;
         public static final int appInstalled=0x7f090018;
-        public static final int block_all=0x7f09002f;
+        public static final int block_all=0x7f090030;
         public static final int btAlterPassWord=0x7f090010;
         public static final int btAppInstalled=0x7f090019;
         public static final int btClearDB=0x7f090013;
@@ -72,7 +73,7 @@ public final class R {
         public static final int txtSettings=0x7f09000a;
         public static final int txtUninstall=0x7f090024;
         public static final int txt_bar_notifications=0x7f090015;
-        public static final int unblock_all=0x7f090030;
+        public static final int unblock_all=0x7f090031;
         public static final int visibility=0x7f090005;
     }
     public static final class layout {

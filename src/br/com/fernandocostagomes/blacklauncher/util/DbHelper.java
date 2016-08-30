@@ -20,7 +20,7 @@ public class DbHelper extends SQLiteOpenHelper
    /**
     * Constante com o nome do banco de Dados.
     */
-   private static final String NOME_BANCO = "bdblacklauncher";
+   private static final String NOME_BANCO = "BlackLauncher";
 
    /**
     * Constante com a versão do Banco de Dados.
@@ -231,6 +231,7 @@ public class DbHelper extends SQLiteOpenHelper
       }
       else
       {
+         permissionApp = "0";
       }
       c.close();
 
@@ -285,10 +286,12 @@ public class DbHelper extends SQLiteOpenHelper
 
       SQLiteDatabase db = getReadableDatabase();
 
-      String SqlSelectOneAppInfo = "SELECT * FROM Parameter_PAR WHERE PAR_NUM_Number = '"
+      String SqlSelectParameter = "SELECT * FROM Parameter_PAR WHERE PAR_NUM_Number = '"
                + p_numberParameter + "';";
 
-      Cursor c = db.rawQuery( SqlSelectOneAppInfo, null );
+      Cursor c = db.rawQuery( SqlSelectParameter, null );
+
+      // String nomeString = c.getString( c.getColumnIndex( "PAR_TXT_Value" ) );
 
       if ( c.moveToFirst() )
       {
