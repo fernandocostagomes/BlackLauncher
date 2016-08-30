@@ -312,6 +312,7 @@ public class AllowAppsActivity extends Activity
    {
       loadAppsPermissionOn();
       loadListView();
+      super.onResume();
    }
 
 }
