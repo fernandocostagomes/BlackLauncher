@@ -19,6 +19,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -211,6 +213,22 @@ public class AllowAppsActivity extends Activity
 
    }
 
+   /**
+    * Método que recebe o clique e abre os aplicativos na tela home.
+    */
+   private void addClickListener()
+   {
+      m_lvAppsOn.setOnItemClickListener( new OnItemClickListener()
+      {
+         @Override
+         public void onItemClick( AdapterView<?> p_parent, View p_view, int p_position, long p_id )
+         {
+            Intent i = m_pm.getLaunchIntentForPackage( m_listAppInfo.get( p_position ).m_APP_TXT_Name.toString() );
+            startActivity( i );
+         }
+      } );
+   }
+
    @Override
    protected void onCreate( Bundle savedInstanceState )
    {
@@ -223,6 +241,8 @@ public class AllowAppsActivity extends Activity
       loadListView();
 
       checkBlockBarNotifications();
+
+      addClickListener();
    }
 
    @Override
