@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 readme.txt
 Introduzir um desligar falso
+=======
+Arquivo criado para que seja descrito observacoes a serem compartilhadas.
+>>>>>>> origin/master
